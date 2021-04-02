@@ -2,6 +2,7 @@ import discord
 import random
 import asyncio
 import logging
+import os
 from discord.ext import commands
 
 #  VARIABLES  #
