@@ -83,7 +83,7 @@ async def on_message(message):
     printsend = 0
     metalsend = 0
 
-@client.event
+@bot.event
 async def on_reaction_add(reaction, user):
     global my_last_message
     if user != bot.user:
