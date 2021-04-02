@@ -80,8 +80,10 @@ async def on_message(message):
             my_last_message = await message.channel.send(embed=embed, delete_after= 120)
             #await my_last_message.add_reaction("🗑️")
             printsend = 1
+    
     printsend = 0
     metalsend = 0
+    print(message.mentions)
 
 @bot.event
 async def on_reaction_add(message, reaction, user):
