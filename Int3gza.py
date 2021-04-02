@@ -42,43 +42,43 @@ async def on_message(message):
         name="Elegoo Mars Pro 2", value="Its a very fast printer, it packs an lcd uv screen that can print at two seconds per layer. It is the printer I use to print Porcelite \n **Price: U$D 350**", inline=False)
     if ("3d print metal" in message.content):
         if metalsend == 0:
-            my_last_message = await message.channel.send(embed=metalembed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
+            #await my_last_message.add_reaction("🗑️")
             metalsend = 1
     if ("print metal" in message.content):
         if metalsend == 0:
-            my_last_message = await message.channel.send(embed=metalembed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
+            #await my_last_message.add_reaction("🗑️")
             metalsend = 1
     if ("metal printer" in message.content):
         if metalsend == 0:
-            my_last_message = await messagechannel.send(embed=metalembed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await messagechannel.send(embed=metalembed, delete_after= 10)
+            #await my_last_message.add_reaction("🗑️")
             metalsend = 1
     if ("printer should" in message.content):
         if printsend == 0:
-            my_last_message = await message.channel.send(embed=embed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await message.channel.send(embed=embed, delete_after= 120)
+            #await my_last_message.add_reaction("🗑️")
             printsend = 1
     if ("good printer" in message.content):
         if printsend == 0:
-            my_last_message = await message.channel.send(embed=embed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await message.channel.send(embed=embed, delete_after= 120)
+            #await my_last_message.add_reaction("🗑️")
             printsend = 1
     if ("i buy" in message.content):
         if printsend == 0:
-            my_last_message = await message.channel.send(embed=embed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await message.channel.send(embed=embed, delete_after= 120)
+            #await my_last_message.add_reaction("🗑️")
             printsend = 1
     if ("what printer" in message.content):
         if printsend == 0:
             my_last_message = await message.channel.send(embed=embed)
-            await my_last_message.add_reaction("🗑️")
+            #await my_last_message.add_reaction("🗑️")
             printsend = 1
     if ("i should buy" in message.content):
         if printsend == 0:
-            my_last_message = await message.channel.send(embed=embed)
-            await my_last_message.add_reaction("🗑️")
+            my_last_message = await message.channel.send(embed=embed, delete_after= 120)
+            #await my_last_message.add_reaction("🗑️")
             printsend = 1
     printsend = 0
     metalsend = 0
