@@ -83,7 +83,8 @@ async def on_message(message):
     
     printsend = 0
     metalsend = 0
-    print(message.mentions)
+    if("414918675481493506" in messsage.mentions):
+        await message.channel.send("penis")
 
 @bot.event
 async def on_reaction_add(message, reaction, user):
