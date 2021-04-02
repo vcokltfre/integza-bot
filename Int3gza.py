@@ -6,7 +6,7 @@ from discord.ext import commands
 my_last_message = ""
 dadude = ""
 bot = commands.Bot(command_prefix = '>')
-TOKEN = "Nzc0MzEzMjg3NDQ1NTEyMjcy.X6V9cQ.pRNWDbBie59EDtwXOZE6eboobmY"
+TOKEN = os.getenv("DISCORD_TOKEN")
 printsend = 0
 metalsend = 0
 @bot.event
