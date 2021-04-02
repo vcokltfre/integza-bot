@@ -50,6 +50,22 @@ intpingembed = discord.Embed(
 starliteembed = discord.Embed(
     title="I already saw that video!", description = "around 169 times to be precise", color=0x0c0f27)
 
+# Mod help embed
+
+modhelp = discord.Embed(
+    title="Mod help", description="", color=0x0c0f27)
+embed.add_field(
+    name="When to warn", value="If someone breaks a rule you should warn them and state the reason, if they complain explain to them your reasoning. if you are unsure if you should warn dont hesitate to ping marco or other staff in mod chat", inline=False)
+embed.add_field(
+    name="When to kick", value="If someone keeps breaking the rules warn them every time they do so mee6 can deal with teh amount of times a person can break rules and administer the proper punishment", inline=False)
+embed.add_field(
+    name="Someone is asking me for mod!", value="When someone asks to be a moderator or a staff memeber tell them to open a ticket so staff can accept or deny their request", inline=False)
+embed.add_field(
+    name="Someone is mini modding!", value="when someone is Mini modding tell them to stop and let them know that its not okay, mini modding isnt warnable, give them a verbal warning", inline=False)
+embed.add_field(
+    name="The server is being raided what do i do!", value="Ping every staff thats above you, raided means at least 5 people are executing a coordinated attack, such as spam or flooding", inline=False)
+
+
 #  Start  #
 
 @bot.event
