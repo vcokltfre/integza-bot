@@ -85,8 +85,8 @@ async def on_message(message):
     printsend = 0
     metalsend = 0
     if(message.mentions[0].id == 414918675481493506):
-        await message.channel.send("||<@275291687637745665>|| @" + message.author, embed = pingembed)
-
+        await message.channel.send("||<@275291687637745665> <@||" + message.author.id +">||", embed = pingembed)
+        
 @bot.event
 async def on_reaction_add(message, reaction, user):
     global my_last_message
