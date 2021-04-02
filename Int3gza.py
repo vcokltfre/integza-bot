@@ -84,8 +84,9 @@ async def on_message(message):
         title="Dont ping integza please!", description="Please read rule 10, if you ping integza there is a lower chance he will see it!", color=0x0c0f27)
     printsend = 0
     metalsend = 0
-    if(message.mentions[0].id == 414918675481493506):
-        await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = pingembed)
+    if("@" in message.content):
+        if(message.mentions[0].id == 414918675481493506):
+            await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = pingembed)
         
 @bot.event
 async def on_reaction_add(message, reaction, user):
