@@ -96,6 +96,11 @@ async def on_message(message):
             my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
             #await my_last_message.add_reaction("🗑️")
             printsend = 1
+
+    if(message.author == 414918675481493506):
+        chance = random.randint(1,10)
+        if(chance > 7):
+            message.channel.send("Shut up integza!")
     
     printsend = 0
     metalsend = 0
