@@ -1,1 +1,1 @@
-worker: python3 int3gza.py
+worker: python int3gza.py
