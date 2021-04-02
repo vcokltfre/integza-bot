@@ -57,14 +57,19 @@ modhelp = discord.Embed(
 modhelp.add_field(
     name="When to warn", value="If someone breaks a rule you should warn them and state the reason, if they complain explain to them your reasoning. if you are unsure if you should warn dont hesitate to ping marco or other staff in mod chat", inline=False)
 modhelp.add_field(
-    name="When to kick", value="If someone keeps breaking the rules warn them every time they do so mee6 can deal with teh amount of times a person can break rules and administer the proper punishment", inline=False)
+    name="When to kick", value="If someone keeps breaking the rules warn them every time they do so mee6 can deal with the amount of times a person can break rules and administer the proper punishment", inline=False)
 modhelp.add_field(
     name="Someone is asking me for mod!", value="When someone asks to be a moderator or a staff memeber tell them to open a ticket so staff can accept or deny their request", inline=False)
 modhelp.add_field(
     name="Someone is mini modding!", value="when someone is Mini modding tell them to stop and let them know that its not okay, mini modding isnt warnable, give them a verbal warning", inline=False)
 modhelp.add_field(
     name="The server is being raided what do i do!", value="Ping every staff thats above you, raided means at least 5 people are executing a coordinated attack, such as spam or flooding", inline=False)
-
+modhelp.add_field(
+    name="How do i warn a rulebreaker?", value="type !warn <@ them> <Reason for warn>  the reason is crucial in case we need to further look into the warning", inline=False)
+modhelp.add_field(
+    name="Someone is suggesting ideas outside of #video-ideas!", value="Kindly let them know they should be posting on #video-ideas instead", inline=False)
+modhelp.add_field(
+    name="Someone posted a lot of text in general! (over 2000 characters)", value="Let them know they should post a pastebin intstead, walls of text arent allowed!", inline=False)
 
 #  Start  #
 
