@@ -87,6 +87,12 @@ async def on_message(message):
     if("@" in message.content):
         if(message.mentions[0].id == 414918675481493506):
             await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = pingembed)
+    if(message.content == ">ping"):
+        pingembed = discord.Embed(title="Ping", color=0x0c0f27)
+        pingembed.add_field(name="Bot", value=f'🏓 Pong! {round(bot.latency * 1000)}ms')
+        pingembed.set_footer(text=f"Request by {message.author}", icon_url=message.author.avatar_url)
+        await channel.message.send(embed=pingembed)
+
         
 @bot.event
 async def on_reaction_add(message, reaction, user):
