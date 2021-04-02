@@ -88,7 +88,7 @@ async def on_reaction_add(reaction, user):
     global my_last_message
     if user != bot.user:
         if str(reaction.emoji) == "🗑️":
-            await message.delete(my_last_message)
+            await my_last_message.delete(my_last_message)
 
 
 #ping
