@@ -18,7 +18,7 @@ metalsend = 0
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
-printTriggers = [ "printer should","good printer","i buy","what printer","i should buy"]
+printTriggers = [ "printer should","good printer","i buy","what printer","i should buy","buy a 3d printer"]
 
 #  Embeds  #
 
