@@ -115,7 +115,7 @@ async def on_message(message):
         await message.channel.send(embed=pingembed)
 
     if(message.content == ">modhelp"):
-        for role in member.roles:
+        for role in message.author.roles:
             if role.name == "Helper":
                 await bot.get_user(message.author).send(embed = modhelp)
 
