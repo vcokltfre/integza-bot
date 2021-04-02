@@ -52,7 +52,7 @@ async def on_message(message):
             metalsend = 1
     if ("metal printer" in message.content):
         if metalsend == 0:
-            my_last_message = await messagechannel.send(embed=metalembed, delete_after= 10)
+            my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
             #await my_last_message.add_reaction("🗑️")
             metalsend = 1
     if ("printer should" in message.content):
