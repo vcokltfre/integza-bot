@@ -80,11 +80,12 @@ async def on_message(message):
             my_last_message = await message.channel.send(embed=embed, delete_after= 120)
             #await my_last_message.add_reaction("🗑️")
             printsend = 1
-    
+    pingembed = discord.Embed(
+        title="Dont ping integza please!", description="Please read rule 10, if you ping integza there is a lower chance he will see it!", color=0x0c0f27)
     printsend = 0
     metalsend = 0
     if(message.mentions[0].id == 414918675481493506):
-        await message.channel.send("penis")
+        await message.channel.send("||<@275291687637745665>||", embed = pingembed)
 
 @bot.event
 async def on_reaction_add(message, reaction, user):
