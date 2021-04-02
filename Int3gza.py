@@ -84,7 +84,7 @@ async def on_message(message):
     metalsend = 0
 
 @bot.event
-async def on_reaction_add(reaction, user):
+async def on_reaction_add(message, reaction, user):
     global my_last_message
     if user != bot.user:
         if str(reaction.emoji) == "🗑️":
