@@ -10,8 +10,11 @@ my_last_message = ""
 dadude = ""
 bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
-printsend = 0
-metalsend = 0
+
+# TRIGGERS #
+
+metalTriggers = [ "3d print metal","print metal","metal printer"]
+printTriggers = [ "printer should","good printer","i buy","what printer","i should buy"]
 
 #  Embeds  #
 
@@ -60,52 +63,17 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     global my_last_message
-    global printsend
-    global metalsend
     global printembed
     global intpingembed
     global metalembed
     
-    if ("3d print metal" in message.content):
-        if metalsend == 0:
-            my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
-            #await my_last_message.add_reaction("🗑️")
-            metalsend = 1
-    if ("print metal" in message.content):
-        if metalsend == 0:
-            my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
-            #await my_last_message.add_reaction("🗑️")
-            metalsend = 1
-    if ("metal printer" in message.content):
-        if metalsend == 0:
-            my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
-            #await my_last_message.add_reaction("🗑️")
-            metalsend = 1
-    if ("printer should" in message.content):
-        if printsend == 0:
-            my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
-            #await my_last_message.add_reaction("🗑️")
-            printsend = 1
-    if ("good printer" in message.content):
-        if printsend == 0:
-            my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
-            #await my_last_message.add_reaction("🗑️")
-            printsend = 1
-    if ("i buy" in message.content):
-        if printsend == 0:
-            my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
-            #await my_last_message.add_reaction("🗑️")
-            printsend = 1
-    if ("what printer" in message.content):
-        if printsend == 0:
-            my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
-            #await my_last_message.add_reaction("🗑️")
-            printsend = 1
-    if ("i should buy" in message.content):
-        if printsend == 0:
-            my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
-            #await my_last_message.add_reaction("🗑️")
-            printsend = 1
+    if any(trg in message.content for trg in metalTriggers):
+        my_last_message = await message.channel.send(embed=metalembed, delete_after= 120)
+        #await my_last_message.add_reaction("🗑️")
+    
+    if any(trg in message.content for trg in printTriggers):
+        my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
+        #await my_last_message.add_reaction("🗑️")
 
     if("0IbWampaEcM" in message.content):
         await message.channel.send("||<@" + str(message.author.id) +">||", embed = starliteembed)
@@ -114,9 +82,6 @@ async def on_message(message):
         if(chance > 7):
             message.channel.send("Shut up integza!")
     
-    printsend = 0
-    metalsend = 0
-
     if("@" in message.content):
         if(message.mentions[0].id == 414918675481493506):
             await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
