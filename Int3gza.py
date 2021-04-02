@@ -117,7 +117,7 @@ async def on_message(message):
     if(message.content == ">modhelp"):
         for role in message.author.roles:
             if role.name == "Helper":
-                await bot.send_message(message.author, embed = modhelp)
+                await message.author.send(embed = modhelp)
 
         
 @bot.event
