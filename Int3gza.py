@@ -10,18 +10,16 @@ my_last_message = ""
 dadude = ""
 bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
-<<<<<<< HEAD
+
 printsend = 0
 metalsend = 0
-#
-=======
+
 
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
 printTriggers = [ "printer should","good printer","i buy","what printer","i should buy"]
 
->>>>>>> 91fd36c3f2e92046b65ed3ef156683dfae4039ce
 #  Embeds  #
 
 #  Metal  printer Embed  #
@@ -83,16 +81,17 @@ async def on_message(message):
 
     if("0IbWampaEcM" in message.content):
         await message.channel.send("||<@" + str(message.author.id) +">||", embed = starliteembed)
+        
     if(message.author == 414918675481493506):
         chance = random.randint(1,10)
         if(chance > 7):
             message.channel.send("Shut up integza!")
     
-    if("@" in message.content):
-        for (user in message.mentions):
-            if(user.id == 414918675481493506):
-                await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
-                return
+    if("@integza" in message.content):
+        #for (user in message.mentions):
+        #if(user.id == 414918675481493506):
+        await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
+            
     if(message.content == ">ping"):
         pingembed = discord.Embed(title="Ping", color=0x0c0f27) 
         pingembed.add_field(name="Bot", value=f'🏓 Pong! {round(bot.latency * 1000)}ms')
