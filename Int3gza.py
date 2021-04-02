@@ -83,7 +83,7 @@ async def on_message(message):
     
     printsend = 0
     metalsend = 0
-    if("@integza" in message.content):
+    if(message.mentions[0].id == 414918675481493506):
         await message.channel.send("penis")
 
 @bot.event
