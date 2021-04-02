@@ -70,6 +70,9 @@ modhelp.add_field(
     name="Someone is suggesting ideas outside of #video-ideas!", value="Kindly let them know they should be posting on #video-ideas instead", inline=False)
 modhelp.add_field(
     name="Someone posted a lot of text in general! (over 2000 characters)", value="Let them know they should post a pastebin intstead, walls of text arent allowed!", inline=False)
+modhelp.add_field(
+    name="Someone is disrespecting staff / wont follow orders!", value="IF someone refuses to follow instructions ask a higher up to help with the situation", inline=False)
+
 
 #  Start  #
 
