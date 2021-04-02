@@ -118,8 +118,10 @@ async def on_message(message):
     metalsend = 0
 
     if("@" in message.content):
-        if(message.mentions[0].id == 414918675481493506):
-            await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
+        for (user in message.mentions):
+            if(user.id == 414918675481493506):
+                await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
+                return
     if(message.content == ">ping"):
         pingembed = discord.Embed(title="Ping", color=0x0c0f27) 
         pingembed.add_field(name="Bot", value=f'🏓 Pong! {round(bot.latency * 1000)}ms')
