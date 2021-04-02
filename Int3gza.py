@@ -88,8 +88,9 @@ async def on_message(message):
             message.channel.send("Shut up integza!")
     
     if("@" in message.content):
-        if(message.mentions[0].id == 414918675481493506):
-            await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
+        for mention in message.mentions:
+            if(mention.id == 414918675481493506):
+                await message.channel.send("||<@275291687637745665> <@" + str(message.author.id) +">||", embed = intpingembed)
             
     if(message.content == ">ping"):
         pingembed = discord.Embed(title="Ping", color=0x0c0f27) 
