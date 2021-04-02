@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
 printsend = 0
 metalsend = 0
-
+#
 #  Embeds  #
 
 #  Metal  printer Embed  #
