@@ -113,6 +113,11 @@ async def on_message(message):
         pingembed.set_footer(text=f"Request by {message.author}", icon_url=message.author.avatar_url)
         await message.channel.send(embed=pingembed)
 
+    if(message.content == ">modhelp"):
+        for role in member.roles:
+            if role.name == "Helper":
+                await bot.get_user(message.author).send(embed = modhelp)
+
         
 @bot.event
 async def on_reaction_add(message, reaction, user):
