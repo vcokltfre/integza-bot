@@ -56,6 +56,10 @@ async def on_message(message):
     global my_last_message
     global printsend
     global metalsend
+    global printembed
+    global intpingembed
+    global metalembed
+    
     if ("3d print metal" in message.content):
         if metalsend == 0:
             my_last_message = await message.channel.send(embed=metalembed, delete_after= 10)
