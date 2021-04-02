@@ -37,6 +37,11 @@ printembed.add_field(
 intpingembed = discord.Embed(
     title="Dont ping integza please!", description="Please read rule 10, if you ping integza there is a lower chance he will see it!", color=0x0c0f27)
 
+# Starlite embed #
+
+starliteembed = discord.Embed(
+    title="I already saw that video!", description = "around 169 times to be precise", color=0x0c0f27)
+
 #  Start  #
 
 @bot.event
@@ -101,6 +106,8 @@ async def on_message(message):
             #await my_last_message.add_reaction("🗑️")
             printsend = 1
 
+    if("0IbWampaEcM" in message.content):
+        await message.channel.send("||<@" + str(message.author.id) +">||", embed = starliteembed)
     if(message.author == 414918675481493506):
         chance = random.randint(1,10)
         if(chance > 7):
