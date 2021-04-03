@@ -5,11 +5,17 @@ import logging
 import os
 from discord.ext import commands
 
+try:
+    from dotenv import load_dotenv
+
+    load_dotenv()
+except:
+    pass
+
 #  VARIABLES  #
 my_last_message = ""
 dadude = ""
 bot = commands.Bot(command_prefix = '>')
-TOKEN = os.getenv('DISCORD_TOKEN')
 
 printsend = 0
 metalsend = 0
@@ -94,11 +100,11 @@ async def on_message(message):
     
     if any(trg in message.content for trg in metalTriggers):
         my_last_message = await message.channel.send(embed=metalembed, delete_after= 120)
-        #await my_last_message.add_reaction("🗑️")
+        #await my_last_message.add_reaction("")
     
     if any(trg in message.content for trg in printTriggers):
         my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
-        #await my_last_message.add_reaction("🗑️")
+        #await my_last_message.add_reaction("")
 
     if("0IbWampaEcM" in message.content):
         await message.channel.send("||<@" + str(message.author.id) +">||", embed = starliteembed)
@@ -115,14 +121,12 @@ async def on_message(message):
             
     if(message.content == ">ping"):
         pingembed = discord.Embed(title="Ping", color=0x0c0f27) 
-        pingembed.add_field(name="Bot", value=f'🏓 Pong! {round(bot.latency * 1000)}ms')
+        pingembed.add_field(name="Bot", value=b'\xf0\x9f\x8f\x93'.decode('utf-8')+f' Pong! {round(bot.latency * 1000)}ms')
         pingembed.set_footer(text=f"Request by {message.author}", icon_url=message.author.avatar_url)
         await message.channel.send(embed=pingembed)
-
-    if(message.content == ">modhelp"):
-        for role in message.author.roles:
-            if role.name == "Helper":
-                await message.author.send(embed = modhelp)
+    print(message.content)
+    if(message.content.rstrip() == ">modhelp"):
+        await message.author.send(embed = modhelp)
 
         
 @bot.event
@@ -130,7 +134,7 @@ async def on_reaction_add(message, reaction, user):
     global my_last_message
     if message.author == bot.user:
         if user != bot.user:
-            if str(reaction.emoji) == "🗑️":
+            if str(reaction.emoji) == "":
                 await my_last_message.delete(my_last_message)
 
 @bot.event
@@ -153,4 +157,4 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         raise error
 
-bot.run(TOKEN)
+bot.run(os.getenv('DISCORD_TOKEN'))
