@@ -93,7 +93,7 @@ async def on_message(message):
     global metalembed
     
     if any(re.search(trg,message.content) != None for trg in metalTriggers):
-        my_last_message = await message.channel.send(embed=metalembed, delete_after= 120)
+        my_last_message = await message.channel.send(embed=metalembed, delete_after= 20)
         #await my_last_message.add_reaction("🗑️")
     
     if any(re.search(trg,message.content) != None for trg in printTriggers):
