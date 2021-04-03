@@ -4,6 +4,7 @@ import asyncio
 import logging
 import os
 from discord.ext import commands
+import re
 
 #  VARIABLES  #
 my_last_message = ""
@@ -11,14 +12,10 @@ dadude = ""
 bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-printsend = 0
-metalsend = 0
-
-
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
-printTriggers = [ "printer should","good printer","i buy","what printer","i should buy","buy a 3d printer"]
+printTriggers = [ "printer should","good (3d|resin) printer","what printer","i should buy","buy a 3d printer"]
 
 #  Embeds  #
 
@@ -95,11 +92,11 @@ async def on_message(message):
     global intpingembed
     global metalembed
     
-    if any(trg in message.content for trg in metalTriggers):
+    if any(re.search(trg,message.content) != None for trg in metalTriggers):
         my_last_message = await message.channel.send(embed=metalembed, delete_after= 120)
         #await my_last_message.add_reaction("🗑️")
     
-    if any(trg in message.content for trg in printTriggers):
+    if any(re.search(trg,message.content) != None for trg in printTriggers):
         my_last_message = await message.channel.send(embed=printembed, delete_after= 120)
         #await my_last_message.add_reaction("🗑️")
 
