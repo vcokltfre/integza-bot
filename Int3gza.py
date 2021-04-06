@@ -132,6 +132,14 @@ async def on_message(message):
             if role.name == "Helper":
                 await message.author.send(embed = modhelp)
 
+    if(message.content == "yo"):
+        if(yo == 1):
+            message.channel.send("Yo!")
+            yo = 0
+        else:
+            yo = 1
+        
+
         
 @bot.event
 async def on_reaction_add(message, reaction, user):
