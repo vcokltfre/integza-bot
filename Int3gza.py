@@ -73,6 +73,11 @@ modhelp.add_field(
 modhelp.add_field(
     name="Someone is disrespecting staff / wont follow orders!", value="IF someone refuses to follow instructions ask a higher up to help with the situation", inline=False)
 
+# work embed
+
+workembed = discord.Embed(
+    title="WORK!", description="no one will be sending you a printer for no reason! either get a job or do freelance work. Maybe your comment will get a lot of likes and you will win a printer, but no one will give you one after you ask!", color=0x0c0f27)
+
 
 #  Start  #
 
@@ -108,7 +113,7 @@ async def on_message(message):
         
     if(message.author == 414918675481493506):
         chance = random.randint(1,10)
-        if(chance > 7):
+        if(chance > 3):
             message.channel.send("Shut up integza!")
     
     if("@" in message.content):
@@ -121,6 +126,9 @@ async def on_message(message):
         pingembed.add_field(name="Bot", value=f'🏓 Pong! {round(bot.latency * 1000)}ms')
         pingembed.set_footer(text=f"Request by {message.author}", icon_url=message.author.avatar_url)
         await message.channel.send(embed=pingembed)
+
+    if("how do i get" in message.content and "printer" in message.content):
+        await message.author.send(embed = workembed)
 
     if(message.content == ">modhelp"):
         for role in message.author.roles:
