@@ -11,6 +11,7 @@ my_last_message = ""
 dadude = ""
 bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
+yo = 0
 
 # TRIGGERS #
 
