@@ -97,6 +97,7 @@ async def on_message(message):
     global printembed
     global intpingembed
     global metalembed
+    global yo
     
     if any(re.search(trg,message.content) != None for trg in metalTriggers):
         my_last_message = await message.channel.send(embed=metalembed, delete_after= 20)
