@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix = '>', intents=Intents.all())
 TOKEN = os.getenv('DISCORD_TOKEN')
 yo = 0
 guild = bot.get_guild(757144308204961833)
-memch = get_channel(775014639204696104)
+memch = guild.get_channel(775014639204696104)
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
