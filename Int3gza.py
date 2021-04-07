@@ -145,19 +145,19 @@ async def on_message(message):
         
 @bot.event
 async def on_member_join(member):
-    print("someone  joined poggers")
+    print("someone joined poggers")
     global memch
     global guild
-    memcount = guild.member_count
+    memcount = member.guild.member_count
     memname = "Member count: " + str(memcount)
     await memch.edit(name=memname)
 
 @bot.event
 async def on_member_leave(member):
+    print("someone left poggers")
     global memch
     global guild
-    print("someone  left poggers")
-    memcount = guild.member_count
+    memcount = member.guild.member_count
     memname = "Member count: " + str(memcount)
     await memch.edit(name=memname)
 
