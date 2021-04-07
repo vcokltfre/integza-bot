@@ -12,7 +12,8 @@ dadude = ""
 bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
 yo = 0
-
+guild = client.get_guild(757144308204961833)
+memch = "775014639204696104"
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
@@ -141,8 +142,20 @@ async def on_message(message):
         else:
             yo = 1
         
+@bot.event
+async def on_member_join(member):
+    global memch
+    global guild
+    memcount = len(guild.member_count)
+    await memch.edit(name="Member count: " + str(memcount))
 
-        
+@bot.event
+async def on_member_leave(member):
+    global memch
+    global guild
+    memcount = len(guild.member_count)
+    await memch.edit(name="Member count: " + str(memcount))
+     
 @bot.event
 async def on_reaction_add(message, reaction, user):
     global my_last_message
@@ -172,3 +185,6 @@ async def on_command_error(ctx, error):
         raise error
 
 bot.run(TOKEN)
+
+
+#await member_channel.edit(name=f'Members: {len(members_array)}')
