@@ -5,6 +5,7 @@ import logging
 import os
 from discord.ext import commands
 import re
+from discord import Intents
 
 #  VARIABLES  #
 my_last_message = ""
