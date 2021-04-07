@@ -9,7 +9,7 @@ import re
 #  VARIABLES  #
 my_last_message = ""
 dadude = ""
-bot = commands.Bot(command_prefix = '>')
+bot = commands.Bot(command_prefix = '>', intents=Intents.all())
 TOKEN = os.getenv('DISCORD_TOKEN')
 yo = 0
 guild = bot.get_guild(757144308204961833)
