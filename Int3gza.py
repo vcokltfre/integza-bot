@@ -12,7 +12,7 @@ dadude = ""
 bot = commands.Bot(command_prefix = '>')
 TOKEN = os.getenv('DISCORD_TOKEN')
 yo = 0
-guild = client.get_guild(757144308204961833)
+guild = bot.get_guild(757144308204961833)
 memch = "775014639204696104"
 # TRIGGERS #
 
@@ -155,14 +155,7 @@ async def on_member_leave(member):
     global guild
     memcount = len(guild.member_count)
     await memch.edit(name="Member count: " + str(memcount))
-     
-@bot.event
-async def on_reaction_add(message, reaction, user):
-    global my_last_message
-    if message.author == bot.user:
-        if user != bot.user:
-            if str(reaction.emoji) == "🗑️":
-                await my_last_message.delete(my_last_message)
+
 
 @bot.event
 async def on_command_error(ctx, error):
