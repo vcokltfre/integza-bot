@@ -14,7 +14,7 @@ bot = commands.Bot(command_prefix = '>', intents=Intents.all())
 TOKEN = os.getenv('DISCORD_TOKEN')
 yo = 0
 guild = bot.get_guild(757144308204961833)
-memch = guild.get_channel(775014639204696104)
+memch = member.guild.get_channel(775014639204696104)
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
@@ -146,8 +146,7 @@ async def on_message(message):
 @bot.event
 async def on_member_join(member):
     print("someone joined poggers")
-    global memch
-    global guild
+    memch = member.guild.get_channel(775014639204696104)
     memcount = member.guild.member_count
     memname = "Member count: " + str(memcount)
     await memch.edit(name=memname)
@@ -155,8 +154,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_leave(member):
     print("someone left poggers")
-    global memch
-    global guild
+    memch = member.guild.get_channel(775014639204696104)
     memcount = member.guild.member_count
     memname = "Member count: " + str(memcount)
     await memch.edit(name=memname)
