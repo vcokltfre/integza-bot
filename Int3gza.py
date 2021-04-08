@@ -106,7 +106,7 @@ async def on_message(message):
     global intpingembed
     global metalembed
     global yo
-
+    await bot.wait_until_ready()
     user = await bot.db.get_user(message.author.id)
     await bot.db.update_user_xp(message.author.id, 5)
 
