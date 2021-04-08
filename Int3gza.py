@@ -12,7 +12,7 @@ from db import Database
 #  VARIABLES  #
 my_last_message = ""
 dadude = ""
-bot = commands.Bot(command_prefix = '>', intents=Intents.all(), activity=discord.Game(name="Beep boop startup process started")
+bot = commands.Bot(command_prefix = '>', intents=Intents.all(), activity=discord.Game(name="Beep boop startup process started"))
 TOKEN = os.getenv('DISCORD_TOKEN')
 guild = bot.get_guild(757144308204961833)
 DATABASE_URL = os.environ['DATABASE_URL']
