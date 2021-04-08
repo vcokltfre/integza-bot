@@ -19,7 +19,7 @@ class Bot(commands.Bot):
             command_prefix=">",
             intents=intents,
             allowed_mentions=AllowedMentions(roles=False, everyone=False),
-            activity=Game(name="Annihilating Tomatos!")
+            activity=Game(name="Annihilating Tomatos!"),
             *args,
             **kwargs
         )
