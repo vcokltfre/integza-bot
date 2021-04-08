@@ -26,14 +26,6 @@ class Bot(commands.Bot):
 
         self.db: Database = Database()
 
-    def add_cog(self, cog) -> None:
-        """Add a cog to the bot. Does not add disabled cogs."""
-
-        if not hasattr(cog, "enabled") or cog.enabled:
-            logger.info(f"Loading cog {cog.qualified_name}")
-            return super().add_cog(cog)
-        logger.info(f"Not loading cog {cog.qualified_name}")
-
     def load_extensions(self, *exts) -> None:
         """Load a given set of extensions."""
 
