@@ -194,6 +194,25 @@ async def on_command_error(ctx, error):
         await ctx.send(embed=embed)
         raise error
 
+@bot.command(name="bal")
+async def bal(ctx: commands.Context):
+    embed = discord.Embed(
+        title=f"Balance | {ctx.author}",
+        colour=0x87CEEB,
+        timestamp=ctx.message.created_at,
+    )
+
+    user = await bot.db.get_user(ctx.author.id)
+
+    if not user:
+        bal = 0
+    else:
+        bal = user["balance"]
+
+    embed.description = f"Your current balance is {bal}"
+
+    await ctx.send(embed=embed)
+
 bot.run(TOKEN)
 
 
