@@ -99,7 +99,7 @@ async def on_connect():
 
 #  On Message  #
 
-@bot.event
+@bot.listen()
 async def on_message(message):
     global my_last_message
     global printembed
@@ -193,6 +193,44 @@ async def on_command_error(ctx, error):
                               colour=0xe73c24)
         await ctx.send(embed=embed)
         raise error
+
+@bot.command(name="bal")
+async def bal(ctx: commands.Context):
+    embed = discord.Embed(
+        title=f"Balance | {ctx.author}",
+        colour=0x87CEEB,
+        timestamp=ctx.message.created_at,
+    )
+
+    user = await bot.db.get_user(ctx.author.id)
+
+    if not user:
+        bal = 0
+    else:
+        bal = user["balance"]
+
+    embed.description = f"Your current balance is {bal}"
+
+    await ctx.send(embed=embed)
+
+@bot.command(name="xp")
+async def xp(ctx: commands.Context):
+    embed = discord.Embed(
+        title=f"XP | {ctx.author}",
+        colour=0x87CEEB,
+        timestamp=ctx.message.created_at,
+    )
+
+    user = await bot.db.get_user(ctx.author.id)
+
+    if not user:
+        xp = 0
+    else:
+        xp = user["xp"]
+
+    embed.description = f"Your current xp is {xp}"
+
+    await ctx.send(embed=embed)
 
 bot.run(TOKEN)
 
