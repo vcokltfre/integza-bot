@@ -1,7 +1,7 @@
 from discord import Embed, Message
 from discord.ext import commands
 
-from datetime import timedelta
+from datetime import timedelta, datetime
 from random import randint
 
 from src.internal.bot import Bot
@@ -30,14 +30,11 @@ class Levelling(commands.Cog):
 
         return lvl, user_xp - total_xp, required_xp_to_level_up
 
-    async def get_now(self):
-        return (await self.bot.db.fetchrow("SELECT NOW();"))["now"]
-
     @commands.Cog.listener()
     async def on_message(self, message: Message):
         user = await self.bot.db.get_user(message.author.id)
 
-        if user["last_xp"] + timedelta(seconds=30) < await self.get_now():
+        if user["last_xp"] + timedelta(seconds=30) < datetime.now():
             await self.bot.db.update_user_xp(message.author.id, randint(20, 40))
 
     @commands.command(name="rank", aliases=["level", "xp"])
