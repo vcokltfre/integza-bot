@@ -6,7 +6,6 @@ import os
 from discord.ext import commands
 import re
 from discord import Intents
-import psycopg2
 from db import Database
 
 #  VARIABLES  #
