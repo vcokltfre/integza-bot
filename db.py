@@ -4,7 +4,7 @@ from os import getenv
 CREATE = """CREATE TABLE IF NOT EXISTS Users (
   id BIGINT NOT NULL PRIMARY KEY,
   xp BIGINT NOT NULL,
-  last_xp TIMESTAMP NOT NULL DEFAULT NOW()
+  last_xp TIMESTAMP NOT NULL DEFAULT NOW(),
   balance BIGINT NOT NULL DEFAULT 0,
   last_work TIMESTAMP NOT NULL DEFAULT NOW()
 );
@@ -12,8 +12,7 @@ CREATE TABLE IF NOT EXISTS Warns (
   id SERIAL PRIMARY KEY,
   user_id BIGINT NOT NULL,
   reason VARCHAR(2000)
-);
-"""
+);"""
 
 class Database:
     """A database interface for the bot to connect to Postgres."""
