@@ -63,9 +63,6 @@ intpingembed = Embed(
     color=0x0C0F27,
 )
 
-intping = compile(r"<@!?414918675481493506>")
-
-
 async def respond(message: Message):
     for trigger in metalTriggers:
         if trigger.match(message.content):
@@ -76,5 +73,6 @@ async def respond(message: Message):
     for trigger in starliteTriggers:
         if trigger.match(message.content):
             return await message.reply(embed=starliteembed)
-    if intping.match(message.content):
-        return await message.reply(embed=intpingembed)
+    for mention in message.mentions:
+        if mention.id == 414918675481493506:
+            return await message.reply(embed=intpingembed)
