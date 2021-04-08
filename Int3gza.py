@@ -13,11 +13,11 @@ from db import Database
 my_last_message = ""
 dadude = ""
 bot = commands.Bot(command_prefix = '>', intents=Intents.all(), activity=discord.Game(name="Beep boop startup process started")
-bot.db = Database()
 TOKEN = os.getenv('DISCORD_TOKEN')
 guild = bot.get_guild(757144308204961833)
 DATABASE_URL = os.environ['DATABASE_URL']
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+bot.db = Database()
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
