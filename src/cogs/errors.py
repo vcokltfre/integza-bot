@@ -43,7 +43,7 @@ class ErrorHandler(commands.Cog):
 
         if isinstance(error, errors.CommandNotFound):
             logger.warning(f"Command not found: {command}")
-            return
+            return await ctx.reply("That command wasn't found! Try using >help to get a list of commands you can use!")
         elif isinstance(error, errors.UserInputError):
             await self.user_input_error(ctx, error)
         elif isinstance(error, errors.CheckFailure):
