@@ -99,7 +99,7 @@ async def on_connect():
 
 #  On Message  #
 
-@bot.event
+@bot.listen()
 async def on_message(message):
     global my_last_message
     global printembed
