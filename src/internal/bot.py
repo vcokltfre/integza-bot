@@ -1,5 +1,5 @@
 from discord.ext import commands
-from discord import Intents, Message, AllowedMentions
+from discord import Intents, AllowedMentions
 
 from loguru import logger
 from traceback import format_exc
