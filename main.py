@@ -11,6 +11,7 @@ bot = Bot()
 bot.load_extensions(
     #"jishaku",
     "src.cogs.core",
+    "src.cogs.errors",
 )
 
 bot.run(getenv("DISCORD_TOKEN"))
