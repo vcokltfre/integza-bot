@@ -38,10 +38,13 @@ class Database:
             return await conn.fetch(query, *args)
 
     async def create_user(self, id: int):
-        await self.execute("INSERT INTO Users (id, xp) VALUES ($1, $2);", id, 0)
+        return await self.fetchrow("INSERT INTO Users (id, xp) VALUES ($1, $2) RETURNING *;", id, 0)
 
     async def update_user_xp(self, id: int, xp: int):
         await self.execute("UPDATE Users SET xp = xp + $1, last_xp = NOW() WHERE id = $2;", xp, id)
 
     async def get_user(self, id: int):
-        return await self.fetchrow("SELECT * FROM Users WHERE id = $1;", id)
+        user =  await self.fetchrow("SELECT * FROM Users WHERE id = $1;", id)
+        if user:
+            return user
+        return await self.create_user(id)
