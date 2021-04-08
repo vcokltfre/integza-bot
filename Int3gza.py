@@ -6,14 +6,18 @@ import os
 from discord.ext import commands
 import re
 from discord import Intents
+import psycopg2
+from db import Database
 
 #  VARIABLES  #
 my_last_message = ""
 dadude = ""
-bot = commands.Bot(command_prefix = '>', intents=Intents.all())
+bot = commands.Bot(command_prefix = '>', intents=Intents.all(), activity=discord.Game(name="Beep boop startup process started")
+bot.db = Database()
 TOKEN = os.getenv('DISCORD_TOKEN')
-yo = 0
 guild = bot.get_guild(757144308204961833)
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 # TRIGGERS #
 
 metalTriggers = [ "3d print metal","print metal","metal printer"]
@@ -90,6 +94,10 @@ async def on_ready():
     print('--------------------')
     return
 
+@bot.listen()
+async def on_connect():
+    await bot.db.setup()
+
 #  On Message  #
 
 @bot.event
@@ -99,7 +107,13 @@ async def on_message(message):
     global intpingembed
     global metalembed
     global yo
-    
+
+    user = await bot.db.get_user(message.author.id)
+    await bot.db.update_user_xp(message.author.id, 5)
+
+    if user["last_xp"] + datetime.timedelta(seconds=30) < datetime.datetime.now():
+        xpamount = random.randint(2,20)
+        await bot.db.update_user_xp(message.author.id, xpamount)
     if any(re.search(trg,message.content) != None for trg in metalTriggers):
         my_last_message = await message.channel.send(embed=metalembed, delete_after= 20)
         #await my_last_message.add_reaction("🗑️")
@@ -129,19 +143,21 @@ async def on_message(message):
 
     if("how do i get" in message.content and "printer" in message.content):
         await message.author.send(embed = workembed)
+    
+    if("can i ask" in message.content):
+        await message.author.send("https://dontasktoask.com/")
 
     if(message.content == ">modhelp"):
         for role in message.author.roles:
             if role.name == "Helper":
                 await message.author.send(embed = modhelp)
+    
+    if any(re.search(trg,message.content) != None for trg in metalTriggers):
+        my_last_message = await message.channel.send(embed=metalembed, delete_after= 20)
+        #await my_last_message.add_reaction("🗑️")
+    
+    
 
-    if(message.content == "yo"):
-        if(yo == 1):
-            message.channel.send("Yo!")
-            yo = 0
-        else:
-            yo = 1
-        
 @bot.event
 async def on_member_join(member):
     print("someone joined poggers")
