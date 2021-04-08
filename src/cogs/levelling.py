@@ -73,7 +73,13 @@ class Levelling(commands.Cog):
 
         data = loads(data)
 
-        return await ctx.reply(f"l: {len(data)}")
+        for user in data:
+            xp = user["xp"]
+            id = int(user["id"])
+
+            await self.bot.db.update_user_xp(id, xp)
+
+        return await ctx.reply(f"Successfully imported XP from {len(data)} MEE6 users.")
 
 
 def setup(bot: Bot):
