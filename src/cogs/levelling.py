@@ -1,7 +1,5 @@
 from discord import Embed, Message
 from discord.ext import commands
-from aiohttp import ClientSession
-from json import loads
 
 from datetime import timedelta
 from random import randint
@@ -59,27 +57,6 @@ class Levelling(commands.Cog):
         embed.description += f"Level up in {rank_data[2]}xp"
 
         await ctx.reply(embed=embed)
-
-    @commands.command(name="importmee6")
-    async def importmee6(self, ctx: commands.Context):
-        if ctx.author.id != 297045071457681409:
-            return
-
-        sess = ClientSession()
-
-        at = ctx.message.attachments[0].url
-
-        data = await (await sess.get(at)).text()
-
-        data = loads(data)
-
-        for user in data:
-            xp = user["xp"]
-            id = int(user["id"])
-
-            await self.bot.db.update_user_xp(id, xp)
-
-        return await ctx.reply(f"Successfully imported XP from {len(data)} MEE6 users.")
 
 
 def setup(bot: Bot):
