@@ -1,5 +1,5 @@
 from discord.ext import commands
-from discord import Intents, AllowedMentions
+from discord import Intents, AllowedMentions, Game
 
 from loguru import logger
 from traceback import format_exc
@@ -19,6 +19,7 @@ class Bot(commands.Bot):
             command_prefix=">",
             intents=intents,
             allowed_mentions=AllowedMentions(roles=False, everyone=False),
+            activity=Game(name="Annihilating Tomatos!")
             *args,
             **kwargs
         )
