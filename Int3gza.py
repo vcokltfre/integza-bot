@@ -213,6 +213,25 @@ async def bal(ctx: commands.Context):
 
     await ctx.send(embed=embed)
 
+@bot.command(name="xp")
+async def xp(ctx: commands.Context):
+    embed = discord.Embed(
+        title=f"XP | {ctx.author}",
+        colour=0x87CEEB,
+        timestamp=ctx.message.created_at,
+    )
+
+    user = await bot.db.get_user(ctx.author.id)
+
+    if not user:
+        xp = 0
+    else:
+        xp = user["xp"]
+
+    embed.description = f"Your current xp is {xp}"
+
+    await ctx.send(embed=embed)
+
 bot.run(TOKEN)
 
 
